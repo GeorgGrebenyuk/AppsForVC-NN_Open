@@ -38,7 +38,10 @@ namespace AnalyzeFinishFolder
 			this.label3 = new System.Windows.Forms.Label();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.label4 = new System.Windows.Forms.Label();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -100,26 +103,47 @@ namespace AnalyzeFinishFolder
 			this.dataGridView1.Location = new System.Drawing.Point(17, 96);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(771, 342);
+			this.dataGridView1.Size = new System.Drawing.Size(974, 342);
 			this.dataGridView1.TabIndex = 3;
 			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(293, 18);
+			this.label4.Location = new System.Drawing.Point(279, 5);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(237, 26);
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Примечание: файл отчета генерируется \r\nв корне папки \"Исходящие\", разделители \";\"" +
     "\r\n";
 			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.linkLabel1);
+			this.groupBox1.Location = new System.Drawing.Point(607, 8);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(384, 82);
+			this.groupBox1.TabIndex = 4;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "О приложении";
+			// 
+			// linkLabel1
+			// 
+			this.linkLabel1.AutoSize = true;
+			this.linkLabel1.Location = new System.Drawing.Point(7, 68);
+			this.linkLabel1.Name = "linkLabel1";
+			this.linkLabel1.Size = new System.Drawing.Size(120, 13);
+			this.linkLabel1.TabIndex = 0;
+			this.linkLabel1.TabStop = true;
+			this.linkLabel1.Text = "Страница приложения";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(1006, 450);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.StartAnalyze);
 			this.Controls.Add(this.OpenOutFolder);
@@ -131,6 +155,8 @@ namespace AnalyzeFinishFolder
 			this.Name = "Form1";
 			this.Text = "Проверка итоговой сборки";
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -146,6 +172,8 @@ namespace AnalyzeFinishFolder
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.LinkLabel linkLabel1;
 	}
 }
 

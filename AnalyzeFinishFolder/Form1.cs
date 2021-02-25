@@ -28,9 +28,17 @@ namespace AnalyzeFinishFolder
 		{
 			Actions.CreateReport(@"D:\Dropbox\NN_Copy\L15_638\Исходящие");
 
+			dataGridView1.ColumnCount = 3;
+			dataGridView1.Columns[0].Name = "File's name";
+			dataGridView1.Columns[0].Width = 400;
+			dataGridView1.Columns[1].Name = "Is name a correct";
+			dataGridView1.Columns[1].Width = 100;
+			dataGridView1.Columns[2].Name = "Comment";
+			dataGridView1.Columns[2].Width = 400;
+
 			using (var reader = new StringReader(Actions.Report.ToString()))
 			{
-				foreach (string str in File.ReadLines(Actions.LogFN))
+				foreach (string str in File.ReadLines(Actions.LogFN).Skip(1))
 				{
 					string[] SingleRow = new string[3] { str.Split(';')[0], str.Split(';')[1], str.Split(';')[2] };
 					dataGridView1.Rows.Add(SingleRow);
