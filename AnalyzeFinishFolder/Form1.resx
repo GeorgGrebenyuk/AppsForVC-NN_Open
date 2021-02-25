@@ -120,6 +120,15 @@
   <metadata name="FBD_OpenOufFolder.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Порядок использования:
+1. Выбираете через кнопку "Обзор" вашу текущую директорию "Исходящие" в папке участка
+2. После выбора нажимаете на кнопку "Запуск"; по кокнчанию процесса в табличе ниже
+вы увидите результаты проверки
+3. Следует обратить внимание на отсутствие сигнатур False и каких-либо комментариев 
+(третий столбец) для файлов
+4. В случае проблем лучше писать в блок Issues репозитория программы</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -8,3 +8,13 @@ E:\Work\Code\GitHub\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinis
 E:\Work\Code\GitHub\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.csproj.CoreCompileInputs.cache
 E:\Work\Code\GitHub\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.exe
 E:\Work\Code\GitHub\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.pdb
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\bin\Debug\AnalyzeFinishFolder.exe.config
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\bin\Debug\AnalyzeFinishFolder.exe
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\bin\Debug\AnalyzeFinishFolder.pdb
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.csprojAssemblyReference.cache
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.Form1.resources
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.Properties.Resources.resources
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.csproj.GenerateResource.cache
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.csproj.CoreCompileInputs.cache
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.exe
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.pdb

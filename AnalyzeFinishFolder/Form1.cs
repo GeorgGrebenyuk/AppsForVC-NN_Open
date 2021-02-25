@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace AnalyzeFinishFolder
 {
@@ -26,13 +27,13 @@ namespace AnalyzeFinishFolder
 
 		private void StartAnalyze_Click(object sender, EventArgs e) //Старт процедуры анализа каталога
 		{
-			Actions.CreateReport(@"D:\Dropbox\NN_Copy\L15_638\Исходящие");
+			Actions.CreateReport(FBD_OpenOufFolder.SelectedPath); //@"D:\Dropbox\NN_Copy\L15_638\Исходящие" - for debugging
 
 			dataGridView1.ColumnCount = 3;
 			dataGridView1.Columns[0].Name = "File's name";
-			dataGridView1.Columns[0].Width = 400;
+			dataGridView1.Columns[0].Width = 300;
 			dataGridView1.Columns[1].Name = "Is name a correct";
-			dataGridView1.Columns[1].Width = 100;
+			dataGridView1.Columns[1].Width = 50;
 			dataGridView1.Columns[2].Name = "Comment";
 			dataGridView1.Columns[2].Width = 400;
 
@@ -44,6 +45,7 @@ namespace AnalyzeFinishFolder
 					dataGridView1.Rows.Add(SingleRow);
 				}
 			}
+			File.Delete(Actions.LogFN);
 		}
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) //Таблица для вывода результатов проверки
@@ -54,6 +56,11 @@ namespace AnalyzeFinishFolder
 		private void FBD_OpenOufFolder_HelpRequest(object sender, EventArgs e) //Операция открытия Исходящих
 		{
 
+		}
+
+		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Process.Start("https://github.com/GeorgGrebenyuk/AppsForVC-NN_Open");
 		}
 	}
 }
