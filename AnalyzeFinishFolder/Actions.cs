@@ -194,11 +194,8 @@ namespace AnalyzeFinishFolder
 			else Errors.AppendLine("Путь до итоговой папки не найден!");
 			LogFN = PathToOutfolder + $"\\Log-{guid}.csv";
 			File.AppendAllText(LogFN, Report.ToString());
+			Report.Clear();
 		}
 
-		public static void CheckFilesInReport()
-		{
-
-		}
 	}
 }
