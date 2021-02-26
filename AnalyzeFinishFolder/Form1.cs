@@ -37,14 +37,14 @@ namespace AnalyzeFinishFolder
 			dataGridView1.Columns[2].Name = "Comment";
 			dataGridView1.Columns[2].Width = 400;
 
-			using (var reader = new StringReader(Actions.Report.ToString()))
-			{
 				foreach (string str in File.ReadLines(Actions.LogFN).Skip(1))
 				{
 					string[] SingleRow = new string[3] { str.Split(';')[0], str.Split(';')[1], str.Split(';')[2] };
 					dataGridView1.Rows.Add(SingleRow);
 				}
-			}
+			textBox1.Text = Actions.Errors.ToString();
+
+			
 			File.Delete(Actions.LogFN);
 		}
 
@@ -61,6 +61,11 @@ namespace AnalyzeFinishFolder
 		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			Process.Start("https://github.com/GeorgGrebenyuk/AppsForVC-NN_Open");
+		}
+
+		private void textBox1_TextChanged(object sender, EventArgs e) //Консоль вывода отчета о недостающих файлах
+		{
+
 		}
 	}
 }

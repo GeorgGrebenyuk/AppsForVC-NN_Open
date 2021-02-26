@@ -11,6 +11,7 @@ namespace AnalyzeFinishFolder
 	public static class Actions
 	{
 		public static StringBuilder Report = new StringBuilder();
+		public static StringBuilder Errors = new StringBuilder();
 		//public static int FilesCount = 0;
 		public static string LogFN = null;
 		//public static StringBuilder ReportTemp = new StringBuilder();
@@ -31,10 +32,9 @@ namespace AnalyzeFinishFolder
 			string FF_Podacha = FinishFolder + $"\\{SPn}-Подача";
 			string FF_Data = FinishFolder + $"\\{SPn}-Собранные_данные";
 			//Variables for RVT files:
-			bool IsAR_RVT = false;
-			bool IsGP_RVT = false;
-
+			int AR_Count = 0;
 			bool IsAR_RN = false;
+			bool IsGP_RVT = false;
 
 
 			//Variables for Report's file
@@ -50,8 +50,8 @@ namespace AnalyzeFinishFolder
 						string File_Name = InfoAboutFile.Name; //Get file's name and extension
 						Technical.CheckTempFile(File_Name);
 						Technical.CheckFileName(File_Name);
-						if (File_Name.Contains("-АР")) IsAR_RVT = true;
-						else if (File_Name.Contains("-Генплан")) IsGP_RVT = true;
+						if (File_Name.Contains("-АР")) AR_Count++;
+						if (File_Name.Contains("Генплан")) IsGP_RVT = true;
 
 						//Analyze data to create a report's variables
 						if (Technical.IsTemp == true)
@@ -71,8 +71,8 @@ namespace AnalyzeFinishFolder
 						}
 						Report.AppendLine(File_Name + ';' + IsCorrect + ';' + Comment);
 					}
-					if (IsAR_RVT == false) Report.AppendLine($"{SPn}-File_Name-АР.rvt" + ';' + "False" + ';' + "Отсутствует файл Revit-АР либо неверно назван");
-					else if (IsGP_RVT == false) Report.AppendLine($"{SPn}-File_Name-Генплан.rvt" + ';' + "False" + ';' + "Отсутствует файл Revit-Генплан либо неверно назван");
+					if (AR_Count < 2) Errors.AppendLine($"Файлов {SPn}-File_Name-АР.rvt недостаточно");
+					else if (IsGP_RVT == false) Errors.AppendLine($"Не обнаружен файл {SPn}-Генплан.rvt");
 
 					foreach (string str in Directory.GetFiles(FF_Files).Where(d => d.Contains(".rnp"))) //Looking for Renga's files:
 					{
@@ -95,9 +95,9 @@ namespace AnalyzeFinishFolder
 						}
 						Report.AppendLine(File_Name + ';' + IsCorrect + ';' + Comment);
 					}
-					if (IsAR_RN == false) Report.AppendLine($"{SPn}-File_Name-АР.rnp" + ';' + "False" + ';' + "Отсутствует файл Renga-АР либо неверно назван");
+					if (IsAR_RN == false) Errors.AppendLine($"Файл проекта Renga {SPn}-File_Name-АР.rnp не найден");
 				}
-				else Report.AppendLine($"Путь до {SPn}-BIM-файлы не найден!" +';'+';') ;
+				else Errors.AppendLine($"Путь до {SPn}-BIM-файлы не найден!");
 
 				if (Directory.Exists(FF_FilesMS))
 				{
@@ -121,7 +121,7 @@ namespace AnalyzeFinishFolder
 						Report.AppendLine(File_Name + ';' + IsCorrect + ';' + Comment);
 					}		
 				}
-				else Report.AppendLine($"Путь до {SPn}-Model_Studio не найден!" + ';' + ';');
+				else Errors.AppendLine($"Путь до {SPn}-Model_Studio не найден!");
 
 				if (Directory.Exists(FF_Drawings))
 				{
@@ -147,9 +147,9 @@ namespace AnalyzeFinishFolder
 				}
 				if (Directory.Exists (FF_Podacha))
 				{
-					if (File.Exists (FF_Podacha + $"\\{SPn}-Lumion.ls10")) Report.AppendLine($"{SPn}-Lumion.ls10" + ';'+ "True" + ';'+  "-");
-					else Report.AppendLine($"{SPn}-Lumion.ls10" +";" + "False" +";" + "Файл не существует или неверно назван/выполнен не в той версии");
-					foreach (string str in Directory.GetFiles(FF_Podacha).Where(d => !d.Contains(".ls10")))
+					if (File.Exists (FF_Podacha + $"\\{SPn}-Lumion.ls*")) Report.AppendLine($"{SPn}-Lumion.ls*" + ';'+ "True" + ';'+  "-");
+					else Errors.AppendLine($"Файл проекта {SPn}-Lumion.ls* не найден");
+					foreach (string str in Directory.GetFiles(FF_Podacha).Where(d => !d.Contains(".ls*")))
 					{
 						FileInfo InfoAboutFile = new FileInfo(Path.GetFullPath(str));
 						string File_Name = InfoAboutFile.Name; //Get file's name and extension
@@ -173,27 +173,32 @@ namespace AnalyzeFinishFolder
 				//Check files in root folder (Итог)
 				//Файл Сборки
 				if (File.Exists(FinishFolder + $"\\{SPn}-Сборка.nwd")) Report.AppendLine($"{SPn}-Сборка.nwd" + ';' + "True" + ';' + "-");
-				else Report.AppendLine($"{SPn}-Сборка.nwd" + ';'+ "False" + ';' + "Файл не найден или неверно назван");
+				else Errors.AppendLine($"{SPn}-Сборка.nwd не найдена или неверное названа");
 				//Файл сборки с пересечками
 				if (File.Exists(FinishFolder + $"\\{SPn}-Сборка-4D+Пересечения.nwd")) Report.AppendLine($"{SPn}-Сборка-4D+Пересечения.nwd" + ';' + "True" + ';' + "-");
-				else Report.AppendLine($"{SPn}-Сборка-4D+Пересечения.nwd" + ';' + "False" + ';' + "Файл не найден или неверно назван");
+				else Errors.AppendLine($"{SPn}-Сборка-4D+Пересечения.nwd не найдена или неверное названа");
 				//Файлы презентации
 				if (File.Exists(FinishFolder + $"\\{SPn}-Презентация.pptx")) Report.AppendLine($"{SPn}-Презентация.pptx" + ';' + "True" + ';' + "-");
-				else Report.AppendLine($"{SPn}-Презентация.pptx" + ';' + "False" + ';' + "Файл не найден или неверно назван");
+				else Errors.AppendLine($"{SPn}-Презентация.pptx не найдена или неверное названа");
 				if (File.Exists(FinishFolder + $"\\{SPn}-Презентация.pdf")) Report.AppendLine($"{SPn}-Презентация.pdf" + ';' + "True" + ';' + "-");
-				else Report.AppendLine($"{SPn}-Презентация.pdf" + ';' + "False" + ';' + "Файл не найден или неверно назван");
+				else Errors.AppendLine($"{SPn}-Презентация.pdf не найден или неверное назван");
 				//Файлы ВЕР
 				if (File.Exists(FinishFolder + $"\\{SPn}-BEP.docx")) Report.AppendLine($"{SPn}-BEP.docx" + ';' + "True" + ';' + "-");
-				else Report.AppendLine($"{SPn}-BEP.docx" + ';' + "False" + ';' + "Файл не найден или неверно назван");
+				else Errors.AppendLine($"{SPn}-BEP.docx не найден или неверное назван");
 				if (File.Exists(FinishFolder + $"\\{SPn}-BEP.pdf")) Report.AppendLine($"{SPn}-BEP.pdf" +';'+ "True" + ';' + "-");
-				else Report.AppendLine($"{SPn}-BEP.pdf" + ';' + "False" + ';' + "Файл не найден или неверно назван");
+				else Errors.AppendLine($"{SPn}-BEP.pdf не найден или неверное назван");
 				//График МРР
 				if (File.Exists(FinishFolder + $"\\{SPn}-График.mpp")) Report.AppendLine($"{SPn}-График.mpp" + ';' + "True" + ';' + "-");
-				else Report.AppendLine($"{SPn}-График.mpp" + ';' + "False" + ';' + "Файл не найден или неверно назван");
+				else Errors.AppendLine($"{SPn}-График.mpp не найден или неверное назван");
 			}
-			else Report.AppendLine("Путь до итоговой папки не найден!" + ';' + ';');
+			else Errors.AppendLine("Путь до итоговой папки не найден!");
 			LogFN = PathToOutfolder + $"\\Log-{guid}.csv";
 			File.AppendAllText(LogFN, Report.ToString());
+		}
+
+		public static void CheckFilesInReport()
+		{
+
 		}
 	}
 }

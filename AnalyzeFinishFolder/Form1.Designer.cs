@@ -38,11 +38,13 @@ namespace AnalyzeFinishFolder
 			this.label3 = new System.Windows.Forms.Label();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label5 = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.linkLabel1 = new System.Windows.Forms.LinkLabel();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.label4 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label6 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -124,16 +126,14 @@ namespace AnalyzeFinishFolder
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "О приложении";
 			// 
-			// linkLabel1
+			// label5
 			// 
-			this.linkLabel1.AutoSize = true;
-			this.linkLabel1.Location = new System.Drawing.Point(4, 103);
-			this.linkLabel1.Name = "linkLabel1";
-			this.linkLabel1.Size = new System.Drawing.Size(120, 13);
-			this.linkLabel1.TabIndex = 0;
-			this.linkLabel1.TabStop = true;
-			this.linkLabel1.Text = "Страница приложения";
-			this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(101, 9);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(484, 91);
+			this.label5.TabIndex = 2;
+			this.label5.Text = resources.GetString("label5.Text");
 			// 
 			// pictureBox1
 			// 
@@ -144,14 +144,16 @@ namespace AnalyzeFinishFolder
 			this.pictureBox1.TabIndex = 1;
 			this.pictureBox1.TabStop = false;
 			// 
-			// label5
+			// linkLabel1
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(101, 9);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(484, 91);
-			this.label5.TabIndex = 2;
-			this.label5.Text = resources.GetString("label5.Text");
+			this.linkLabel1.AutoSize = true;
+			this.linkLabel1.Location = new System.Drawing.Point(4, 103);
+			this.linkLabel1.Name = "linkLabel1";
+			this.linkLabel1.Size = new System.Drawing.Size(120, 13);
+			this.linkLabel1.TabIndex = 0;
+			this.linkLabel1.TabStop = true;
+			this.linkLabel1.Text = "Страница приложения";
+			this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
 			// 
 			// groupBox2
 			// 
@@ -176,15 +178,36 @@ namespace AnalyzeFinishFolder
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Примечание: проверка наименований файлов идет\r\nпо актуальной версии ТЗ";
 			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(933, 46);
+			this.textBox1.Multiline = true;
+			this.textBox1.Name = "textBox1";
+			this.textBox1.ReadOnly = true;
+			this.textBox1.Size = new System.Drawing.Size(361, 398);
+			this.textBox1.TabIndex = 6;
+			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(930, 24);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(200, 13);
+			this.label6.TabIndex = 0;
+			this.label6.Text = "Вывод отчета о недостающих файлах:";
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(933, 456);
+			this.ClientSize = new System.Drawing.Size(1306, 456);
+			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label3);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Form1";
@@ -215,6 +238,8 @@ namespace AnalyzeFinishFolder
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label6;
 	}
 }
 
