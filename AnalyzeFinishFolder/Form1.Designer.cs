@@ -110,7 +110,7 @@ namespace AnalyzeFinishFolder
 			this.dataGridView1.Location = new System.Drawing.Point(15, 152);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(903, 292);
+			this.dataGridView1.Size = new System.Drawing.Size(541, 292);
 			this.dataGridView1.TabIndex = 3;
 			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
@@ -129,7 +129,7 @@ namespace AnalyzeFinishFolder
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(101, 9);
+			this.label5.Location = new System.Drawing.Point(99, 10);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(484, 91);
 			this.label5.TabIndex = 2;
@@ -180,18 +180,18 @@ namespace AnalyzeFinishFolder
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(933, 46);
+			this.textBox1.Location = new System.Drawing.Point(562, 152);
 			this.textBox1.Multiline = true;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
-			this.textBox1.Size = new System.Drawing.Size(361, 398);
+			this.textBox1.Size = new System.Drawing.Size(356, 292);
 			this.textBox1.TabIndex = 6;
 			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(930, 24);
+			this.label6.Location = new System.Drawing.Point(570, 136);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(200, 13);
 			this.label6.TabIndex = 0;
@@ -202,7 +202,7 @@ namespace AnalyzeFinishFolder
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(1306, 456);
+			this.ClientSize = new System.Drawing.Size(929, 456);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);

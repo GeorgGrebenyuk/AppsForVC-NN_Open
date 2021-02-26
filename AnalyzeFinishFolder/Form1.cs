@@ -27,15 +27,15 @@ namespace AnalyzeFinishFolder
 
 		private void StartAnalyze_Click(object sender, EventArgs e) //Старт процедуры анализа каталога
 		{
-			Actions.CreateReport(FBD_OpenOufFolder.SelectedPath); //@"D:\Dropbox\NN_Copy\L15_638\Исходящие" - for debugging
+			Actions.CreateReport(@"D:\Dropbox\NN_Copy\L15_638\Исходящие"); //@"D:\Dropbox\NN_Copy\L15_638\Исходящие" - for debugging FBD_OpenOufFolder.SelectedPath
 
 			dataGridView1.ColumnCount = 3;
 			dataGridView1.Columns[0].Name = "File's name";
 			dataGridView1.Columns[0].Width = 300;
 			dataGridView1.Columns[1].Name = "Is name a correct";
-			dataGridView1.Columns[1].Width = 50;
+			dataGridView1.Columns[1].Width = 60;
 			dataGridView1.Columns[2].Name = "Comment";
-			dataGridView1.Columns[2].Width = 400;
+			dataGridView1.Columns[2].Width = 60;
 
 				foreach (string str in File.ReadLines(Actions.LogFN).Skip(1))
 				{
