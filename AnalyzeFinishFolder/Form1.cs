@@ -27,7 +27,7 @@ namespace AnalyzeFinishFolder
 
 		private void StartAnalyze_Click(object sender, EventArgs e) //Старт процедуры анализа каталога
 		{
-			Actions.CreateReport(FBD_OpenOufFolder.SelectedPath); //@"D:\Dropbox\NN_Copy\L15_638\Исходящие" - for debugging FBD_OpenOufFolder.SelectedPath
+			Actions.CreateReport(FBD_OpenOufFolder.SelectedPath);
 
 			dataGridView1.ColumnCount = 3;
 			dataGridView1.Columns[0].Name = "File's name";
