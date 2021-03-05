@@ -179,23 +179,24 @@ namespace AnalyzeFinishFolder
 				//Check files in root folder (Итог)
 				//Файл Сборки
 				if (File.Exists(FinishFolder + $"\\{SPn}-Сборка.nwd")) Report.AppendLine($"{SPn}-Сборка.nwd" + ';' + "True" + ';' + "-");
-				else Errors.AppendLine($"{SPn}-Сборка.nwd не найдена или неверное названа");
+				else Errors.AppendLine($"{SPn}-Сборка.nwd не найдена или неверно названа");
 				//Файл сборки с пересечками
 				if (File.Exists(FinishFolder + $"\\{SPn}-Сборка-4D+Пересечения.nwd")) Report.AppendLine($"{SPn}-Сборка-4D+Пересечения.nwd" + ';' + "True" + ';' + "-");
 				else Errors.AppendLine($"{SPn}-Сборка-4D+Пересечения.nwd не найдена или неверное названа");
 				//Файлы презентации
 				if (File.Exists(FinishFolder + $"\\{SPn}-Презентация.pptx")) Report.AppendLine($"{SPn}-Презентация.pptx" + ';' + "True" + ';' + "-");
-				else Errors.AppendLine($"{SPn}-Презентация.pptx не найдена или неверное названа");
+				else Errors.AppendLine($"{SPn}-Презентация.pptx не найдена или неверно названа");
 				if (File.Exists(FinishFolder + $"\\{SPn}-Презентация.pdf")) Report.AppendLine($"{SPn}-Презентация.pdf" + ';' + "True" + ';' + "-");
-				else Errors.AppendLine($"{SPn}-Презентация.pdf не найден или неверное назван");
+				else Errors.AppendLine($"{SPn}-Презентация.pdf не найден или неверно назван");
 				//Файлы ВЕР
 				if (File.Exists(FinishFolder + $"\\{SPn}-BEP.docx")) Report.AppendLine($"{SPn}-BEP.docx" + ';' + "True" + ';' + "-");
-				else Errors.AppendLine($"{SPn}-BEP.docx не найден или неверное назван");
+				else Errors.AppendLine($"{SPn}-BEP.docx не найден или неверно назван");
 				if (File.Exists(FinishFolder + $"\\{SPn}-BEP.pdf")) Report.AppendLine($"{SPn}-BEP.pdf" +';'+ "True" + ';' + "-");
-				else Errors.AppendLine($"{SPn}-BEP.pdf не найден или неверное назван");
+				else Errors.AppendLine($"{SPn}-BEP.pdf не найден или неверно назван");
 				//График МРР
 				if (File.Exists(FinishFolder + $"\\{SPn}-График.mpp")) Report.AppendLine($"{SPn}-График.mpp" + ';' + "True" + ';' + "-");
-				else Errors.AppendLine($"{SPn}-График.mpp не найден или неверное назван");
+				else if (File.Exists(FinishFolder + $"\\{SPn}-График.csv")) Report.AppendLine($"{SPn}-График.csv" + ';' + "True" + ';' + "-");
+				else Errors.AppendLine($"{SPn}-График.mpp/csv не найден или неверно назван");
 			}
 			else Errors.AppendLine("Путь до итоговой папки не найден!");
 			LogFN = PathToOutfolder + $"\\Log-{guid}.csv";
