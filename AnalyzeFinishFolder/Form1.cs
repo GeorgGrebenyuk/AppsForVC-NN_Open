@@ -42,11 +42,12 @@ namespace AnalyzeFinishFolder
 					string[] SingleRow = new string[3] { str.Split(';')[0], str.Split(';')[1], str.Split(';')[2] };
 					dataGridView1.Rows.Add(SingleRow);
 				}
+			File.Delete(Actions.LogFN);
 			textBox1.Text = Actions.Errors.ToString();
 			Actions.Errors.Clear();
 
 			
-			File.Delete(Actions.LogFN);
+			
 		}
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) //Таблица для вывода результатов проверки

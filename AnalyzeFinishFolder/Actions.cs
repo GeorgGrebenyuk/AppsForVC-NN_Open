@@ -72,7 +72,7 @@ namespace AnalyzeFinishFolder
 						}
 						Report.AppendLine(File_Name + ';' + IsCorrect + ';' + Comment);
 					}
-					if (AR_Count < 2) Errors.AppendLine($"Файлов {SPn}-File_Name-АР.rvt недостаточно");
+					if (AR_Count < 1) Errors.AppendLine($"Файлов {SPn}-File_Name-АР.rvt недостаточно");
 					else if (IsGP_RVT == false) Errors.AppendLine($"Не обнаружен файл {SPn}-Генплан.rvt");
 
 					foreach (string str in Directory.GetFiles(FF_Files).Where(d => d.Contains(".rnp"))) //Looking for Renga's files:
