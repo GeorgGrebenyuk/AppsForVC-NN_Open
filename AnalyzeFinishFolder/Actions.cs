@@ -31,6 +31,7 @@ namespace AnalyzeFinishFolder
 			string FF_Drawings = FinishFolder + $"\\{SPn}-Чертежи";
 			string FF_Podacha = FinishFolder + $"\\{SPn}-Подача";
 			string FF_Data = FinishFolder + $"\\{SPn}-Собранные_данные";
+			string FF_Urid = FinishFolder + $"\\{SPn}-Юридические_файлы";
 			//Variables for RVT files:
 			int AR_Count = 0;
 			bool IsAR_RN = false;
@@ -145,6 +146,33 @@ namespace AnalyzeFinishFolder
 						Report.AppendLine(File_Name + ';' + IsCorrect + ';' + Comment);
 					}
 				}
+				int CountUrid = 0;
+				if (Directory.Exists(FF_Urid))
+				{
+					foreach (string str in Directory.GetFiles(FF_Urid).Where(a => a.Contains(".pdf") | a.Contains(".png") | a.Contains(".jpg")))
+					{
+						FileInfo InfoAboutFile = new FileInfo(Path.GetFullPath(str));
+						string File_Name = InfoAboutFile.Name; //Get file's name and extension
+						Technical.CheckFileName(File_Name);
+
+						//Analyze data to create a report's variables
+						if (Technical.Bool_FileName == false)
+						{
+							Comment = "Неверное название";
+							IsCorrect = false;
+						}
+						else if (Technical.Bool_FileName == true)
+						{
+							CountUrid++;
+							Comment = "-";
+							IsCorrect = true;
+						}
+						Report.AppendLine(File_Name + ';' + IsCorrect + ';' + Comment);
+					}
+					if (CountUrid %2 != 0) Errors.AppendLine("Не хватает юрид. документов!");
+				}
+				else Errors.AppendLine($"Путь до {SPn}-Юридические_файлы не найден!");
+
 				if (Directory.Exists (FF_Podacha))
 				{
 					int LumF = 0;
