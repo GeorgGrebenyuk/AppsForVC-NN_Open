@@ -176,14 +176,14 @@ namespace AnalyzeFinishFolder
 				if (Directory.Exists (FF_Podacha))
 				{
 					int LumF = 0;
-					foreach (string str in Directory.GetFiles(FF_Podacha).Where (d=>d.Contains($"{SPn}-Lumion.ls")))
+					foreach (string str in Directory.GetFiles(FF_Podacha).Where (d=>d.Contains($"{SPn}-Lumion")))
 						{
 						LumF++;
 					}
 					if (LumF >0) Report.AppendLine($"{SPn}-Lumion.ls*" + ';'+ "True" + ';'+  "-");
-					else Errors.AppendLine($"Файл проекта {SPn}-Lumion.ls* не найден");
+					else Errors.AppendLine($"Файл проекта {SPn}-Lumion.ls** не найден");
 
-					foreach (string str in Directory.GetFiles(FF_Podacha).Where(d => !d.Contains("Lumion.ls")))
+					foreach (string str in Directory.GetFiles(FF_Podacha).Where(d => !d.Contains($"{SPn}-Lumion")))
 					{
 						FileInfo InfoAboutFile = new FileInfo(Path.GetFullPath(str));
 						string File_Name = InfoAboutFile.Name; //Get file's name and extension
