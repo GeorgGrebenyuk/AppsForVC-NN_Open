@@ -27,7 +27,7 @@ namespace AnalyzeFinishFolder
 
 		private void StartAnalyze_Click(object sender, EventArgs e) //Старт процедуры анализа каталога
 		{
-			Actions.CreateReport(FBD_OpenOufFolder.SelectedPath);
+			Actions.CreateReport(Path.GetFullPath(FBD_OpenOufFolder.SelectedPath));
 
 			dataGridView1.ColumnCount = 3;
 			dataGridView1.Columns[0].Name = "File's name";
@@ -42,7 +42,6 @@ namespace AnalyzeFinishFolder
 					string[] SingleRow = new string[3] { str.Split(';')[0], str.Split(';')[1], str.Split(';')[2] };
 					dataGridView1.Rows.Add(SingleRow);
 				}
-			File.Delete(Actions.LogFN);
 			textBox1.Text = Actions.Errors.ToString();
 			Actions.Errors.Clear();
 

@@ -17,3 +17,4 @@ C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder
 C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.exe
 C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.pdb
 E:\Work\Code\GitHub\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.csprojAssemblyReference.cache
+C:\Work\Code\AppsForVC-NN_Open\AnalyzeFinishFolder\obj\Debug\AnalyzeFinishFolder.csprojAssemblyReference.cache

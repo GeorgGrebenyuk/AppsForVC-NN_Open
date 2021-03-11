@@ -15,8 +15,9 @@ namespace AnalyzeFinishFolder
 		//public static int FilesCount = 0;
 		public static string LogFN = null;
 		//public static StringBuilder ReportTemp = new StringBuilder();
-		public static void CreateReport (string PathToOutfolder)
+		public static void CreateReport (string PathToOutFolder)
 		{
+			string PathToOutfolder = Path.GetFullPath(PathToOutFolder);
 			string guid = Guid.NewGuid().ToString();
 			Report.Clear();
 			Report.AppendLine("Folder/File name;Is name correct;Comment");
