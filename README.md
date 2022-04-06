@@ -2,7 +2,7 @@
 Compiled and source resources for educational BIM project in Nizhny Novgorod
 ## AnalyzeFinishFolder - приложение для анализа вложенных файлов для Итоговой котрольной точки
 ### Принципы использования
-1. Загружаем приложение из репозитория (это exe-файл, уже скомпилированный, собирать вручную ничего не требуется) [по ссылке](https://github.com/GeorgGrebenyuk/AppsForVC-NN_Open/raw/main/AnalyzeFinishFolder/bin/Debug/AnalyzeFinishFolder.exe)
+1. Загружаем приложение из репозитория (это exe-файл, уже скомпилированный, собирать вручную ничего не требуется) [по ссылке](https://github.com/GeorgGrebenyuk/AppsForVC-NN_Open/releases/download/v1.2/AnalyzeFinishFolder.exe)
 После запуска приложение будет выглядеть примерно так: ![](/images/Screen1.png). Приведенные ниже инструкции доступны также и в правой верхней части приложения.
 2. Нажимаем на кнопку "Обзор" и выбираем папку "Исходящие" в вашей папке участка ![](/images/Screen2.png)
 3. После выбора нажимаем на кнопку "Запуск" для старта процедуры анализа. По окончанию, в табличной форме ниже (элемент WInForms DataGridView) будет представлен результат проверки: ![](/images/Screen3.png)
