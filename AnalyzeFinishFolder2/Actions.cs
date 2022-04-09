@@ -25,10 +25,9 @@ namespace AnalyzeFinishFolder
 			
 			string ParcelDir = new DirectoryInfo(Path.GetDirectoryName(OutgDir.FullName)).Name;
 			string SPn = ParcelDir.Replace('_', '-');
-			string FinishFolder = PathToOutfolder + "\\" + "2021.03.09-7-Итог";
+			string FinishFolder = PathToOutfolder + "\\" + "2022.09.04-Итог";
 			//Subfolders
 			string FF_Files = FinishFolder + $"\\{SPn}-BIM-файлы";
-			string FF_FilesMS = FF_Files + $"\\{SPn}-Model_Studio";
 			string FF_Drawings = FinishFolder + $"\\{SPn}-Чертежи";
 			string FF_Podacha = FinishFolder + $"\\{SPn}-Подача";
 			string FF_Data = FinishFolder + $"\\{SPn}-Собранные_данные";
@@ -100,30 +99,6 @@ namespace AnalyzeFinishFolder
 					if (IsAR_RN == false) Errors.AppendLine($"Файл проекта Renga {SPn}-File_Name-АР.rnp не найден");
 				}
 				else Errors.AppendLine($"Путь до {SPn}-BIM-файлы не найден!");
-
-				if (Directory.Exists(FF_FilesMS))
-				{
-					foreach (string str in Directory.GetFiles(FF_FilesMS))
-					{
-						FileInfo InfoAboutFile = new FileInfo(Path.GetFullPath(str));
-						string File_Name = InfoAboutFile.Name; //Get file's name and extension
-						Technical.CheckFileName(File_Name);
-
-						//Analyze data to create a report's variables
-						if (Technical.Bool_FileName == false)
-						{
-							Comment = "Неверное название";
-							IsCorrect = false;
-						}
-						else if (Technical.Bool_FileName == true)
-						{
-							Comment = "-";
-							IsCorrect = true;
-						}
-						Report.AppendLine(File_Name + ';' + IsCorrect + ';' + Comment);
-					}		
-				}
-				else Errors.AppendLine($"Путь до {SPn}-Model_Studio не найден!");
 
 				if (Directory.Exists(FF_Drawings))
 				{
