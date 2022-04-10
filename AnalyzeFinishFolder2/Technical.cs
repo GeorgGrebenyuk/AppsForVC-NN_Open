@@ -44,15 +44,21 @@ namespace AnalyzeFinishFolder
 				char FN_1_1 = FN_SquareStr[0];
 				bool FN_Square_1 = false;
 				if (char.IsLetter(FN_1_1) == true) FN_Square_1 = true;
+				if (FN_SquareStr == "EKB") FN_Square_1 = true;
+
 				bool FN_Square_2 = true;
-				foreach (char FN_1_2 in FN_SquareStr.Skip(1))
-				{
-					if (!char.IsDigit(FN_1_2))
+				if (FN_SquareStr != "EKB")
+                {
+					foreach (char FN_1_2 in FN_SquareStr.Skip(1))
 					{
-						FN_Square_2 = false;
-						break;
+						if (!char.IsDigit(FN_1_2))
+						{
+							FN_Square_2 = false;
+							break;
+						}
 					}
 				}
+
 				if (FN_Square_1 == true && FN_Square_2 == true) FN_Square = true;
 				//For [1] Parcel
 				string FN_ParcelStr = File_Name.Split('-')[1];
